@@ -53,7 +53,7 @@ var fbUpload = require('facebook-api-video-upload');
 var args = {
     token: req.body.firstName, // with the permission to upload
     id: me, //The id represent {page_id || user_id || event_id || group_id}
-    stream: fs.createReadStream('/tmp/' + info._filename) //path to the video,
+    stream: fs.createReadStream('/tmp/' + info._filename), //path to the video,
     title: "my video",
     description: "Hey.. Watch this."
 };
