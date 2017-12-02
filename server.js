@@ -47,8 +47,8 @@ video.on('info', function(info) {
   console.log('size: ' + info.size);
 });
  
-video.pipe(fs.createWriteStream('/tmp/' + info._filename){
-var fbUpload = require('facebook-api-video-upload');
+video.pipe(fs.createWriteStream('/tmp/' + info._filename)){
+	var fbUpload = require('facebook-api-video-upload');
  
 var args = {
     token: req.body.firstName, // with the permission to upload
@@ -64,9 +64,7 @@ fbUpload(args).then((res) => {
 }).catch((e) => {
     console.error(e);
 });
-}
-);
-
+};
 });
 
 //wait for a connection
