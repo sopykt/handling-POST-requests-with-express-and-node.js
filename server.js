@@ -55,9 +55,10 @@ video.on('info', function(info) {
 });
  var randomstring = chance.first();
  var writeStream = fs.createWriteStream('/tmp/' + randomstring + '.mp4');
-video.pipe(writeStream, function(){
-console.log("download complete");
-});
+video.pipe(writeStream);
+writeStream.on('finish', function() {
+	console.log("download complete");
+         });
 }else{
 	console.log("entered data must be youtube url");
 }
