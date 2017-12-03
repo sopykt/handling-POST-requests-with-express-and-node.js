@@ -45,7 +45,9 @@ var video = youtubedl(ytburl,
   // Optional arguments passed to youtube-dl.
   ['--format=18'],
   // Additional options can be given for calling `child_process.execFile()`.
-  { cwd: __dirname });
+  { cwd: __dirname,
+maxBuffer: Infinity
+ });
  
 // Will be called when the download starts.
 video.on('info', function(info) {
