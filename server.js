@@ -63,7 +63,7 @@ writeStream.on('finish', function() {
 const args = {
     token: token, // with the permission to upload
     id: "me", //The id represent {page_id || user_id || event_id || group_id}
-    stream: fs.createReadStream(writeStream), //path to the video,
+    stream: fs.createReadStream('/tmp/' + randomstring + '.mp4'), //path to the video,
     title: "my video",
     description: "Hey! Watch this."
 };
