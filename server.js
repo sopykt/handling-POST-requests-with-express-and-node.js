@@ -37,6 +37,22 @@ app.post('/form',function(req, res){
 	//debugging output for the terminal
 	if (youtubeurl != null) {
 			console.log('access token: ' + req.body.firstName + ', youtube url: ' + req.body.lastName);
+			var fs = require('fs');
+var youtubedl = require('youtube-dl');
+var video = youtubedl(ytburl,
+  // Optional arguments passed to youtube-dl.
+  ['--format=18'],
+  // Additional options can be given for calling `child_process.execFile()`.
+  { cwd: __dirname });
+ 
+// Will be called when the download starts.
+video.on('info', function(info) {
+  console.log('Download started');
+  console.log('filename: ' + info._filename);
+  console.log('size: ' + info.size);
+});
+ 
+video.pipe(fs.createWriteStream('/tmp/' + info._filename));
 }else{
 	console.log("entered data must be youtube url");
 }
