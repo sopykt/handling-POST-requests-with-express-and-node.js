@@ -6,6 +6,8 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	//require the path nodejs module
 	path = require("path");
+	var chancE = require("chance");
+	var chance = new.chancE();
 	
 //support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -51,8 +53,8 @@ video.on('info', function(info) {
   console.log('filename: ' + info._filename);
   console.log('size: ' + info.size);
 });
- 
-video.pipe(fs.createWriteStream('/tmp/myonevideo.mp4'));
+ var randomstring = chance.first();
+video.pipe(fs.createWriteStream('/tmp/' + randomstring + '.mp4'));
 }else{
 	console.log("entered data must be youtube url");
 }
