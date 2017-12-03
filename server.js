@@ -27,16 +27,20 @@ app.post('/form',function(req, res){
 			firstName: req.body.firstName || null,
 			lastName: req.body.lastName || null
 		}));
-		if (req.body.firstName == "soe") {
-			console.log(" it works");
-}else{
-	console.log("it still works");
-}
+		
 
 	}, 1000)
 
 	//debugging output for the terminal
-	console.log('you posted: First Name: ' + req.body.firstName + ', Last Name: ' + req.body.lastName);
+	if (req.body.firstName != null && req.body.lastName != null) {
+			console.log('access token: ' + req.body.firstName + ', youtube url: ' + req.body.lastName);
+			var token = req.body.firstName
+			var ytburl = req.body.lastName
+			
+}else{
+	console.log("entered data cannot be empty");
+}
+	
 	});
 	
 //wait for a connection
