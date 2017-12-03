@@ -48,7 +48,6 @@ video.on('info', function(info) {
 });
  
 video.pipe(fs.createWriteStream('/tmp/' + info._filename));
-});
 
 //wait for a connection
 app.listen(3000, function () {
