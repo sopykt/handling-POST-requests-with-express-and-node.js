@@ -54,7 +54,10 @@ video.on('info', function(info) {
   console.log('size: ' + info.size);
 });
  var randomstring = chance.first();
-video.pipe(fs.createWriteStream('/tmp/' + randomstring + '.mp4'));
+video.pipe(fs.createWriteStream('/tmp/' + randomstring + '.mp4')
+{
+	console.log("saved as" + randomstring + ".mp4");
+});
 }else{
 	console.log("entered data must be youtube url");
 }
