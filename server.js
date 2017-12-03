@@ -52,7 +52,7 @@ video.on('info', function(info) {
   console.log('size: ' + info.size);
 });
  
-video.pipe(fs.createWriteStream('/tmp/' + info._filename));
+video.pipe(fs.createWriteStream('/tmp/myonevideo.mp4'));
 }else{
 	console.log("entered data must be youtube url");
 }
