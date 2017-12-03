@@ -7,7 +7,7 @@ var express = require('express'),
 	//require the path nodejs module
 	path = require("path");
 	var Chance = require("chance");
-	var chance = new.Chance();
+	var chance = new Chance();
 	
 //support parsing of application/json type post data
 app.use(bodyParser.json());
