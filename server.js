@@ -30,15 +30,15 @@ app.post('/form',function(req, res){
 		
 
 	}, 1000)
-
+    var token = req.body.firstName
+    var ytburl = req.body.lastName
+    var youtubeurl = ytburl.match(/youtube.com/gi);
+ 
 	//debugging output for the terminal
-	if (req.body.firstName != null && req.body.lastName != null) {
+	if (youtubeurl != null) {
 			console.log('access token: ' + req.body.firstName + ', youtube url: ' + req.body.lastName);
-			var token = req.body.firstName
-			var ytburl = req.body.lastName
-			
 }else{
-	console.log("entered data cannot be empty");
+	console.log("entered data must be youtube url");
 }
 	
 	});
