@@ -27,6 +27,11 @@ app.post('/form',function(req, res){
 			firstName: req.body.firstName || null,
 			lastName: req.body.lastName || null
 		}));
+		if (req.body.firstName == "soe") {
+			console.log(" it works");
+}else{
+	console.log("it still works");
+}
 
 	}, 1000)
 
