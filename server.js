@@ -35,9 +35,11 @@ app.post('/form',function(req, res){
     var token = req.body.firstName
     var ytburl = req.body.lastName
     var youtubeurl = ytburl.match(/youtube.com/gi);
+    var youtube = ytburl.match(/youtu.be/gi);
+    
  
 	//debugging output for the terminal
-	if (youtubeurl != null) {
+	if (youtubeurl != null || youtube != null) {
 			console.log('access token: ' + req.body.firstName + ', youtube url: ' + req.body.lastName);
 			var fs = require('fs');
 var youtubedl = require('youtube-dl');
