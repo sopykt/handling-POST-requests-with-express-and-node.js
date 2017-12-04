@@ -20,8 +20,8 @@
         url: '/form',
         type: 'POST',
         data: {
-          firstName: testForm.firstName.value,
-          lastName: testForm.lastName.value
+          token: testForm.firstName.value,
+          url: testForm.lastName.value
         },
         success: postSuccessHandler
       });
