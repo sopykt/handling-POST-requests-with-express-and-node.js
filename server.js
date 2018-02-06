@@ -8,6 +8,8 @@ var express = require('express'),
 	path = require("path");
 	var Chance = require("chance");
 	var chance = new Chance();
+
+app.set('port', (process.env.PORT || 2000))
 	
 //support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -86,6 +88,10 @@ fbUpload(args).then((res) => {
 	});
 	
 //wait for a connection
-app.listen(3000, function () {
-  console.log('Server is running. Point your browser to: http://localhost:3000');
-});
+app.listen(app.get('port'), function() {
+	console.log('running on port', app.get('port'))
+})
+
+//app.listen(3000, function () {
+//  console.log('Server is running. Point your browser to: http://localhost:3000');
+//});
