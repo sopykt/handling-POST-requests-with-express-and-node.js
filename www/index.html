@@ -21,9 +21,9 @@
             <p>Enter access token and youtube video url.</p>
             <p><a href = "https://video.formyanmar.tk/howto.html">How to?</a></p>
             <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-            FB.getLoginStatus(function(response) {
+            <script>FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
-});
+});</script>
             <div>
                 <form method="POST" id="testForm">
                   <label>Access Token:</label>
