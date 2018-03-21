@@ -76,10 +76,16 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-      'Access token is, ' + response.name + '!';
+      'Welcome ' + response.name + '!';
       //  'Access Token is ' + response.authResponse.accessToken;
     });
   }
+  FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log(response.authResponse.accessToken);
+    document.getElementById('status').innerHTML = 'Access Token is ' + response.authResponse.accessToken;
+  }
+});
 </script>
 
 <!--
