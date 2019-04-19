@@ -10,12 +10,12 @@ var express = require('express'),
 	var chance = new Chance();
 
 app.set('port', (process.env.PORT || 2000))
-	
+
 //support parsing of application/json type post data
 app.use(bodyParser.json());
 
 //support parsing of application/x-www-form-urlencoded post data
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //tell express that www is the root of our public web folder
 app.use(express.static(path.join(__dirname, 'www')));
@@ -31,15 +31,15 @@ app.post('/form',function(req, res){
 			firstName: req.body.firstName || null,
 			lastName: req.body.lastName || null
 		}));
-		
+
 
 	}, 1000)
     var token = req.body.firstName
     var ytburl = req.body.lastName
     var youtubeurl = ytburl.match(/youtube.com/gi);
     var youtube = ytburl.match(/youtu.be/gi);
-    
- 
+
+
 	//debugging output for the terminal
 	if (youtubeurl != null || youtube != null) {
 			console.log('access token: ' + req.body.firstName + ', youtube url: ' + req.body.lastName);
@@ -52,7 +52,7 @@ var video = youtubedl(ytburl,
   { cwd: __dirname,
 maxBuffer: Infinity
  });
- 
+
 // Will be called when the download starts.
 video.on('info', function(info) {
   console.log('Download started');
@@ -65,15 +65,15 @@ video.pipe(writeStream);
 writeStream.on('finish', function() {
 	console.log("download complete");
 	const fbUpload = require('facebook-api-video-upload');
- 
+
 const args = {
     token: token, // with the permission to upload
     id: "me", //The id represent {page_id || user_id || event_id || group_id}
     stream: fs.createReadStream('/tmp/' + randomstring + '.mp4'), //path to the video,
-    title: "my video",
+    title: "My Video",
     description: "Hey! Watch this."
 };
- 
+
 fbUpload(args).then((res) => {
     console.log('res: ', res);
     //res:  { success: true, video_id: '1838312909759132' }
@@ -84,9 +84,9 @@ fbUpload(args).then((res) => {
 }else{
 	console.log("entered data must be youtube url");
 }
-	
+
 	});
-	
+
 //wait for a connection
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
