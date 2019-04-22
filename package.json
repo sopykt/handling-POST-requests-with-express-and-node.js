@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "bluebird": "^3.5.4",
     "body-parser": "^1.15.2",
     "chance": "^1.0.12",
     "express": "4.14.0",
     "facebook-api-video-upload": "^1.4.1",
+    "request-promise": "^4.2.4",
+    "stream-to-promise": "^2.2.0",
     "youtube-dl": "^1.12.2"
   },
   "scripts": {
