@@ -5,7 +5,7 @@
     "express": "4.14.0",
     "facebook-api-video-upload": "^1.4.1",
     "submodules": "^3.0.0",
-    "youtube-dl": "^1.12.2"
+    "youtube-dl": "^1.13.1"
   },
   "scripts": {
     "postinstall": "install-submodules -v && symlink-submodules -v",
